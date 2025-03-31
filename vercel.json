@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "api/predict.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.10"
+      }
     }
   ],
   "routes": [
@@ -12,5 +15,8 @@
       "methods": ["POST"],
       "dest": "api/predict.py"
     }
-  ]
+  ],
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "echo 'Build complete'",
+  "start": "gunicorn api.predict:app"
 }
