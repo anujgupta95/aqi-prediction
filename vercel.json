@@ -13,10 +13,7 @@
     {
       "src": "/predict",
       "methods": ["POST"],
-      "dest": "api/predict.py"
+      "dest": "/api/predict"
     }
-  ],
-  "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "echo 'Build complete'",
-  "start": "gunicorn api.predict:app"
+  ]
 }
