@@ -14,6 +14,9 @@ with open(MODEL_PATH, 'rb') as f:
     model = data['model']
     scaler = data['scaler']
 
+@app.route('/')
+def index():
+    return "Welcome to the AQI Prediction API!"
 
 @app.route('/predict', methods=['POST'])
 def predict():
