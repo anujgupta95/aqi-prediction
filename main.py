@@ -2,10 +2,12 @@ import pickle
 import numpy as np
 import json
 import os
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), '/model.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.pkl')
+print(MODEL_PATH)
 
 with open(MODEL_PATH, 'rb') as f:
     model, scaler = pickle.load(f)
