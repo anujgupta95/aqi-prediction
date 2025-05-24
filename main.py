@@ -10,7 +10,9 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.pkl')
 print(MODEL_PATH)
 
 with open(MODEL_PATH, 'rb') as f:
-    model, scaler = pickle.load(f)
+    data = pickle.load(f)
+    model = data['model']
+    scaler = data['scaler']
 
 
 @app.route('/predict', methods=['POST'])
@@ -36,11 +38,7 @@ def predict():
         return jsonify(response), 200
     
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-# For local testing
-# if __name__ == '__main__':
-    # app.run(debug=True)
+        return jsonify({"error": str(e)}), 500  
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 4000))  # Use Render's port or default locally
