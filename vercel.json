@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/predict.py",
+      "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
         "runtime": "python3.10"
@@ -13,7 +13,7 @@
     {
       "src": "/predict",
       "methods": ["POST"],
-      "dest": "/api/predict"
+      "dest": "/api/index.py"
     }
   ]
 }
